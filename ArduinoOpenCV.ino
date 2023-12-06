@@ -120,7 +120,7 @@ if(color == 'r'){
     go=1;
 }
 
- else if(color == 'b'){
+ else if(color == 'p'){
   
      go=0;
     forward(1); //moves conveyor
