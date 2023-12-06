@@ -37,11 +37,11 @@ while True:
                 cv2.rectangle(frame, (x, y), (x+w, y+h), (0, 0, 255), 2)
                 #if(before = n and count not equal to 1)
                 ser.write(b'r')
-                time.sleep(13)
+                time.sleep(15)
             elif np.sum(purple_mask[y:y+h, x:x+w]) > 40000:
                 cv2.rectangle(frame, (x, y), (x+w, y+h),  (128, 0, 128), 2)
-                ser.write(b'b')
-                time.sleep(23)
+                ser.write(b'p')
+                time.sleep(15)
             elif np.sum(green_mask[y:y+h, x:x+w]) > 0:
                 cv2.rectangle(frame, (x, y), (x+w, y+h), (0, 255, 0), 2)
                 ser.write(b'g')
