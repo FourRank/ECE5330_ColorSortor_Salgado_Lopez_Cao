@@ -18,8 +18,8 @@ AF_DCMotor motor2(2);// M1 on OWI (Gripper) is on M2 on motor driver.
 //Forward = Counterclock
 AF_DCMotor motor3(3); //M5 on OWI(Base Rotation)is on M3 on motor driver
 
-
-AF_DCMotor motor4(4); //M5 on OWI (Base Rotation) is on M4 on motor driver. 
+//+M4 --> Blue Wire on OW1 extra
+AF_DCMotor motor4(4);  
 
 const int redPin = 9;
 const int greenPin = 10;
@@ -45,9 +45,14 @@ if(color == 'r'){
     delay(800);
     stops();
     delay(1000);
-    
+
     forward(2);//closes gripper
     delay(2000);
+    stops();
+    delay(1000);
+
+    forward(4);//ex
+    delay(1000);
     stops();
     delay(1000);
     
@@ -55,7 +60,12 @@ if(color == 'r'){
     delay(2000);
     stops();
     delay(1000);
-
+    
+    backward(4);//ex
+    delay(840); //old was 875
+    stops();
+    delay(1000);
+    
     backward(2);//opens gripper
     delay(1800);
     stops();
@@ -63,20 +73,27 @@ if(color == 'r'){
     
     //Time to reset
     forward(3);//moves the base rotation clockwise
-    delay(2000);
+    delay(2035);
     stops();
     delay(1000);
     go=1;
 }
  else if(color == 'g'){
   go=0;
-      forward(1); //moves conveyor
+     forward(1); //moves conveyor
     delay(800);
     stops();
     delay(1000);
     
+
+    
     forward(2);//closes gripeer
     delay(2000);
+    stops();
+    delay(1000);
+
+    forward(4);//ex
+    delay(1000);
     stops();
     delay(1000);
     
@@ -84,7 +101,12 @@ if(color == 'r'){
     delay(4000);
     stops();
     delay(1000);
-
+    
+     backward(4);//ex
+    delay(840); //875
+    stops();
+    delay(1000);
+    
     backward(2);//opens gripper
     delay(1800);
     stops();
@@ -92,46 +114,55 @@ if(color == 'r'){
     
     //Time to reset
     forward(3);//moves the base rotation clockwise
-    delay(4000);
+    delay(4020);
     stops();
     delay(1000);
     go=1;
 }
 
  else if(color == 'b'){
-  go=0;
-         forward(1); //moves conveyor
+  
+     go=0;
+    forward(1); //moves conveyor
     delay(800);
     stops();
     delay(1000);
-    
+
     forward(2);//closes gripper
     delay(2000);
     stops();
     delay(1000);
-    
-    backward(3);//moves the base rotation clockwise
-    delay(6000);
+
+    forward(4);//ex
+    delay(1000);
     stops();
     delay(1000);
-
+    
+    forward(3);//moves the base rotation clockwise
+    delay(2000);
+    stops();
+    delay(1000);
+    
+    backward(4);//ex
+    delay(840); //old was 875
+    stops();
+    delay(1000);
+    
     backward(2);//opens gripper
     delay(1800);
     stops();
     delay(1000);
     
     //Time to reset
-    forward(3);//moves the base rotation clockwise
-    delay(6100);
+    backward(3);//moves the base rotation clockwise
+    delay(2075);//
     stops();
     delay(1000);
     go=1;
-}
 
     
-
-
 }
+  }
 }
 
 void forward(int motornumber)
